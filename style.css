@@ -1,0 +1,879 @@
+:root {
+    /* === 1. DEFINED COLOR PALETTE === */
+    --color-gold: #FFC300;           /* Primary Accent & Highlight */
+    --color-blue-accent: #0056B3;    /* Secondary Accent (Trust/Links) */
+    --color-dark-background: #1A1A1A;/* Header/Footer/Dark Banners */
+    --color-light-background: #F8F8F8;/* Main Content Sections */
+    --color-primary-text: #333333;    /* Headings & Main Text */
+    --color-secondary-text: #666666;  /* Paragraphs & Subtitles */
+    --color-border: #E0E0E0;         /* Neutral Borders */
+    --color-white: #FFFFFF;
+
+    /* === 2. TYPOGRAPHY === */
+    --font-heading: 'Playfair Display', serif; /* Classic and bold */
+    --font-body: 'Lato', sans-serif;           /* Clean and readable */
+
+    /* === 3. LAYOUT/INTERACTION === */
+    --border-radius-card: 12px;
+    --transition-speed: 0.3s;
+}
+
+/* === 4. BASE RESET AND TYPOGRAPHY === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--color-primary-text);
+    background-color: var(--color-light-background);
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    color: var(--color-primary-text);
+    margin-bottom: 0.5em;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-blue-accent);
+    transition: color var(--transition-speed);
+}
+
+a:hover {
+    color: var(--color-gold);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* === 5. CTA BUTTONS & SHARED COMPONENTS === */
+.cta-button {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-body);
+}
+
+.primary-cta {
+    background-color: var(--color-gold);
+    color: var(--color-dark-background);
+}
+
+.primary-cta:hover {
+    background-color: #E6B300; /* Darker Gold */
+    color: var(--color-dark-background);
+}
+
+.secondary-cta {
+    background-color: transparent;
+    color: var(--color-gold);
+    border: 2px solid var(--color-gold);
+}
+
+.secondary-cta:hover {
+    background-color: var(--color-gold);
+    color: var(--color-dark-background);
+}
+
+.icon-gold {
+    color: var(--color-gold);
+}
+
+/* === 6. HEADER & NAVIGATION === */
+.main-header {
+    background-color: var(--color-dark-background);
+    color: var(--color-white);
+    padding: 15px 5%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo-image {
+    height: 40px; /* Adjust as needed */
+    filter: brightness(0) invert(1); /* Makes logo white on dark header */
+}
+
+.nav-menu ul {
+    list-style: none;
+    display: flex;
+}
+
+.nav-menu ul li a {
+    color: var(--color-white);
+    padding: 10px 15px;
+    display: block;
+    font-weight: 700;
+    position: relative;
+    transition: color var(--transition-speed);
+}
+
+.nav-menu ul li a:hover,
+.nav-menu ul li a.active {
+    color: var(--color-gold);
+}
+
+.cart-cta {
+    background-color: var(--color-blue-accent);
+    color: var(--color-white);
+    padding: 8px 15px;
+    border-radius: 5px;
+    margin-left: 20px;
+    font-weight: 700;
+}
+
+.cart-cta:hover {
+    background-color: #004593;
+    color: var(--color-white);
+}
+
+/* --- HAMBURGER MENU STYLING (FOR MOBILE) --- */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    z-index: 100;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 30px;
+}
+
+.hamburger .bar {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: var(--color-white);
+    transition: all var(--transition-speed) ease-in-out;
+    border-radius: 2px;
+}
+
+/* Transform the bars into an 'X' when the menu is active */
+.hamburger.is-active .bar:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger.is-active .bar:nth-child(2) {
+    opacity: 0; /* Hide the middle bar */
+}
+
+.hamburger.is-active .bar:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+
+/* === 7. HERO BANNER (Outstanding Look) === */
+.hero-banner {
+    background-color: #f1f2f6; /* Light gray background to hold the image */
+    padding: 60px 5%;
+    display: flex;
+    max-width: 1200px;
+    margin: 30px auto;
+    border-radius: var(--border-radius-card);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.hero-content {
+    flex: 1;
+    padding: 30px 40px 30px 0;
+}
+
+.hero-content h1 {
+    font-size: 3.5em; 
+    line-height: 1.1;
+    margin-bottom: 20px;
+    color: var(--color-primary-text);
+}
+
+.hero-content p {
+    font-size: 1.1em;
+    margin-bottom: 30px;
+    max-width: 450px;
+    color: var(--color-secondary-text);
+}
+
+.hero-image {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.hero-image img {
+    max-height: 400px;
+    border-radius: var(--border-radius-card);
+    object-fit: cover;
+}
+
+
+/* === 8. NEW CATEGORY GRID (Visual Impact) === */
+.category-section {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.category-section h2 {
+    text-align: center; 
+    margin-bottom: 30px;
+    font-size: 2em;
+}
+
+.category-grid {
+    display: grid;
+    gap: 20px;
+    /* Defines a complex grid structure inspired by the sample */
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+        "item1 item2 item3 item3"
+        "item4 item4 item5 item6";
+}
+
+.category-card {
+    position: relative;
+    border-radius: var(--border-radius-card);
+    overflow: hidden;
+    height: 100%;
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    text-decoration: none;
+    transition: transform var(--transition-speed);
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.category-card img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    transition: transform 0.4s;
+}
+.category-card:hover img {
+    transform: scale(1.05);
+}
+
+.category-card-content {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+    color: var(--color-white);
+    /* Dark gradient for text readability over images */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+    transition: background var(--transition-speed);
+}
+
+.category-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.4em;
+    margin-bottom: 5px;
+    color: var(--color-white);
+}
+
+.category-card p {
+    font-size: 0.9em;
+    font-weight: 300;
+    color: #eee;
+}
+
+/* Unique Grid Area Assignments */
+#cat-1 { grid-area: item1; } 
+#cat-2 { grid-area: item2; }
+#cat-3 { grid-area: item3; } /* Spans two columns */
+#cat-4 { grid-area: item4; } /* Spans two columns */
+#cat-5 { grid-area: item5; }
+#cat-6 { grid-area: item6; }
+
+
+
+/* === 9. ABOUT PREVIEW SECTION === */
+.about-preview-section {
+    padding: 60px 20px;
+    background-color: var(--color-white);
+}
+
+.about-content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.about-text-block {
+    flex: 1;
+    min-width: 300px;
+}
+
+.about-text-block .pre-heading {
+    color: var(--color-gold);
+    text-transform: uppercase;
+    font-size: 0.8em;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.about-text-block h2 {
+    font-size: 2em;
+    margin-bottom: 15px;
+}
+
+.about-image-block {
+    flex: 1;
+    min-width: 300px;
+}
+
+.about-image-block img {
+    border-radius: var(--border-radius-card);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Mission/Vision Blocks (Feature Blocks) */
+.mission-vision-grid-preview {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(2, 1fr); 
+    margin: 30px 0;
+}
+
+.mission-block-preview {
+    text-align: center; 
+    padding: 20px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-card);
+    transition: background-color var(--transition-speed);
+}
+
+.mission-block-preview:hover {
+    background-color: var(--color-light-background);
+}
+
+.mission-block-preview .icon-gold {
+    font-size: 2.2em;
+    display: block; 
+    margin: 0 auto 10px auto; 
+}
+
+.mission-block-preview h4 {
+    margin-top: 10px;
+    font-size: 1.1em;
+    color: var(--color-primary-text);
+}
+
+/* === 10. PRODUCT LISTING/CARDS (Reusable Style) === */
+.featured-section {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.featured-section h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2em;
+}
+
+.product-grid {
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.product-card {
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-card);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow var(--transition-speed);
+}
+
+.product-card:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.product-card-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.product-card-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.product-card-info h3 {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+
+.product-card-info p {
+    font-size: 0.9em;
+    color: var(--color-secondary-text);
+    margin-bottom: 10px;
+}
+
+.product-card-price {
+    font-size: 1.3em;
+    font-weight: 700;
+    color: var(--color-blue-accent);
+    margin: 10px 0 20px;
+}
+
+.product-card .add-to-cart-btn {
+    width: 100%;
+    font-size: 0.9em;
+    text-transform: none;
+    padding: 10px 15px;
+}
+
+
+/* === 11. CONTACT/CTA FOOTER PREVIEW === */
+.contact-preview {
+    background-color: var(--color-dark-background);
+    color: var(--color-white);
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.contact-preview h2 {
+    color: var(--color-gold);
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.contact-preview p {
+    font-size: 1.1em;
+    margin-bottom: 25px;
+    color: #ccc;
+}
+
+
+/* === 12. FOOTER SECTION === */
+.main-footer {
+    background-color: var(--color-dark-background);
+    color: var(--color-light-background);
+    padding-top: 50px;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 40px 20px;
+    gap: 30px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-section {
+    min-width: 150px;
+    /* Ensures four columns fit perfectly */
+    width: calc(25% - 22.5px); 
+}
+
+.main-footer h4 {
+    color: var(--color-gold);
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    font-family: var(--font-heading);
+}
+
+.main-footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+.main-footer a {
+    color: var(--color-light-background);
+    text-decoration: none;
+    transition: color var(--transition-speed);
+    line-height: 2;
+}
+
+.main-footer a:hover {
+    color: var(--color-gold);
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.social-icons a {
+    font-size: 1.2em;
+    color: var(--color-white);
+}
+
+.social-icons a:hover {
+    color: var(--color-gold);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9em;
+    color: #999;
+}
+
+
+/* === 13. LEGAL PAGES STYLING (For terms.html & privacy.html) === */
+
+.legal-main-content {
+    padding: 60px 0;
+    background-color: var(--color-light-background); 
+}
+
+.legal-section {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: var(--color-white); 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border-radius: var(--border-radius-card);
+}
+
+.legal-section .page-title {
+    font-family: var(--font-heading);
+    color: var(--color-primary-text);
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.legal-section .subtitle {
+    text-align: center;
+    color: var(--color-secondary-text);
+    font-style: italic;
+    margin-bottom: 40px;
+    border-bottom: 2px solid var(--color-border);
+    padding-bottom: 20px;
+}
+
+.legal-article h2 {
+    font-family: var(--font-heading);
+    font-size: 1.5em;
+    color: var(--color-primary-text);
+    margin-top: 30px;
+    margin-bottom: 10px;
+    border-left: 4px solid var(--color-gold); 
+    padding-left: 15px;
+}
+
+.legal-article h3 {
+    font-family: var(--font-body);
+    font-size: 1.1em;
+    font-weight: 700;
+    color: var(--color-primary-text);
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+.legal-article p {
+    line-height: 1.8;
+    margin-bottom: 15px;
+    color: var(--color-primary-text);
+    text-align: justify;
+}
+
+.legal-article ul {
+    list-style: disc;
+    margin: 15px 0 25px 30px;
+    padding-left: 0;
+}
+
+.legal-article ul li {
+    line-height: 1.6;
+    margin-bottom: 8px;
+    color: var(--color-primary-text);
+}
+
+.contact-cta-legal {
+    border-top: 1px solid var(--color-border);
+    margin-top: 40px;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.contact-cta-legal a {
+    color: var(--color-gold);
+    font-weight: 700;
+}
+
+
+/* ========================================= */
+/* === 14. MEDIA QUERIES (RESPONSIVENESS) === */
+/* ========================================= */
+
+/* --- Tablet Devices (Up to 900px) --- */
+@media (max-width: 900px) {
+    /* Navigation Collapse */
+    .nav-menu {
+        position: absolute;
+        top: 70px; /* Below header */
+        right: 0;
+        width: 100%;
+        background-color: var(--color-dark-background);
+        flex-direction: column;
+        display: none; /* Hidden by default */
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    .nav-menu.active {
+        display: flex;
+    }
+    .nav-menu ul {
+        flex-direction: column;
+        width: 100%;
+        padding: 10px 0;
+    }
+    .nav-menu ul li {
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .cart-cta {
+        margin: 10px auto 20px auto;
+    }
+    .hamburger {
+        display: flex;
+    }
+
+    /* Hero */
+    .hero-banner {
+        flex-direction: column;
+        text-align: center;
+        margin: 20px 20px;
+        padding: 40px 20px;
+    }
+    .hero-content {
+        padding: 0 0 30px 0;
+    }
+    .hero-content h1 {
+        font-size: 2.8em;
+    }
+    .hero-content p {
+        max-width: 100%;
+    }
+    .hero-image {
+        justify-content: center;
+    }
+
+    /* Category Grid Collapse */
+    .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas: none; 
+    }
+    .category-card {
+        height: 220px;
+        grid-area: unset;
+    }
+
+    /* About Preview */
+    .about-content-wrapper {
+        flex-direction: column;
+    }
+    .about-image-block {
+        order: -1; /* Image first on mobile */
+    }
+
+    /* Footer Collapse */
+    .footer-section {
+        /* Force two columns on tablet/mid-size screens */
+        width: calc(50% - 15px); 
+        min-width: 200px; 
+    }
+}
+
+/* --- Mobile Devices (Up to 600px) --- */
+@media (max-width: 600px) {
+    .hero-content h1 {
+        font-size: 2em;
+    }
+
+    /* Category Grid */
+    .category-grid {
+        grid-template-columns: 1fr; /* Single column */
+    }
+    .category-card {
+        min-height: 180px;
+    }
+
+    /* Product Grid */
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Footer Centering Fix */
+    .footer-container {
+        justify-content: center;
+    }
+
+    .footer-section {
+        width: 100%; 
+        text-align: center; /* CRITICAL: Centers text content */
+        margin-bottom: 30px;
+    }
+
+    .social-icons {
+        justify-content: center; /* CRITICAL: Centers the icons */
+    }
+    
+    .footer-bottom {
+        text-align: center;
+    }
+    
+    /* Legal Pages Mobile */
+    .legal-section {
+        margin: 0 10px;
+        padding: 20px;
+        box-shadow: none;
+    }
+    .legal-article p {
+        text-align: left; /* Justify removed for narrow screens */
+    }
+}
+
+/* --- Style for Mission Icons on About Page --- */
+.mission-points {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 20px;
+}
+.mission-points li {
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--color-border);
+    font-weight: 700;
+}
+.mission-points li i {
+    /* This makes the icon stand out using the professional blue */
+    color: var(--color-blue-accent); 
+    margin-right: 10px;
+}
+
+/* --- CATEGORY SECTION STYLES FOR HORIZONTAL SCROLL (MOBILE FIX) --- */
+
+.category-grid {
+    display: flex;
+    gap: 20px;
+    padding: 10px 0;
+    
+    /* CRITICAL: Enables horizontal scrolling and prevents wrapping */
+    overflow-x: auto;       
+    overflow-y: hidden;     
+    flex-wrap: nowrap;      
+    -webkit-overflow-scrolling: touch; /* Smoother scrolling on iOS */
+    
+    /* Hide the scrollbar for a cleaner look */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* Hide the scrollbar for Webkit browsers (Chrome, Safari) */
+.category-grid::-webkit-scrollbar {
+    display: none;
+}
+
+/* Defines the size of each card for the scroll */
+.category-card {
+    /* Ensures the card takes up a fixed amount of space horizontally */
+    flex: 0 0 250px; /* Card width is 250px (adjust this size if needed) */
+    max-width: 250px; 
+    height: auto; 
+    
+    /* Ensure existing card styles like border-radius, shadow, etc. are defined elsewhere */
+}
+
+/* Adds margin to the sides on mobile so the first/last card isn't right against the edge */
+@media (max-width: 768px) {
+    .category-section {
+        /* Prevents horizontal scrolling from clipping into main page padding */
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .category-grid {
+        padding-left: 20px; 
+        padding-right: 20px;
+    }
+}
+
+/* --- TEXT LOGO STYLES --- */
+
+/* Ensures the text link sits properly within the header */
+.text-logo-link {
+    display: flex;
+    align-items: center;
+    color: var(--color-white); /* Base color */
+    text-decoration: none;
+    font-family: var(--font-heading);
+    gap: 8px; /* Spacing between icon and text */
+}
+
+/* Style for the Shopping Icon */
+.logo-icon {
+    font-size: 1.8em;
+    color: var(--color-gold); /* Make the icon gold */
+    line-height: 1;
+}
+
+/* Style for the actual text name */
+.logo-name {
+    font-size: 1.3em;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--color-white); /* Optional: Keep text white or use gold */
+    letter-spacing: 0.5px;
+}
+
+/* Make the logo look extra special on hover */
+.text-logo-link:hover .logo-name {
+    color: var(--color-gold);
+    transition: color var(--transition-speed);
+}
+
+
+/* Media Query Adjustment (Crucial for mobile header space) */
+@media (max-width: 600px) {
+    .logo-name {
+        /* Reduce font size to fit on small screens */
+        font-size: 1.1em; 
+    }
+    .logo-icon {
+        font-size: 1.5em; 
+    }
+}

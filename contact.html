@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Vicki's Shopping Mall</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Contact Page specific styles for form readability */
+        .contact-section {
+            padding: 60px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+        }
+        .contact-form-container {
+            flex: 2;
+            background-color: var(--color-white);
+            padding: 30px;
+            border-radius: var(--border-radius-card);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        .contact-info-block {
+            flex: 1;
+            padding: 30px 0;
+            min-width: 250px;
+        }
+        .contact-info-block h3 {
+            color: var(--color-gold);
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--color-border);
+            padding-bottom: 10px;
+        }
+        .contact-info-block p {
+            margin-bottom: 20px;
+        }
+        .contact-info-block a {
+            display: block;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        .contact-info-block i {
+            margin-right: 10px;
+            color: var(--color-blue-accent);
+        }
+        
+        /* Form styling */
+        .contact-form-container form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 700;
+            color: var(--color-primary-text);
+        }
+        .contact-form-container form input[type="text"],
+        .contact-form-container form input[type="email"],
+        .contact-form-container form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid var(--color-border);
+            border-radius: 5px;
+            font-family: var(--font-body);
+            font-size: 1em;
+        }
+        .contact-form-container form textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+        .form-status-message {
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 15px;
+            font-weight: 700;
+        }
+        .form-status-message.loading {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+        .form-status-message.success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .form-status-message.error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .contact-section {
+                flex-direction: column;
+            }
+            .contact-form-container {
+                order: 2;
+            }
+            .contact-info-block {
+                order: 1;
+                width: 100%;
+                padding-top: 0;
+                text-align: center;
+            }
+            .contact-info-block h3 {
+                border-bottom: none;
+            }
+            .contact-info-block a {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header class="main-header">
+        <div class="header-container">
+             <div class="logo-container">
+    <a href="index.html" class="text-logo-link">
+        <i class="fas fa-shopping-bag logo-icon"></i> 
+        <span class="logo-name"></span>VIKI'S SHOPPING MALL</span>
+    </a>
+</div>
+            <nav class="nav-menu" id="navMenu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="categories.html">Shop</a></li>
+                    <li><a href="index.html#featured">Featured</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html" class="active">Customer Service</a></li>
+                </ul>
+                <a href="cart.html" class="cart-cta">🛒 Cart (<span id="cart-count">0</span>)</a>
+            </nav>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <div class="contact-preview">
+            <h2>Customer Service & Support</h2>
+            <p>We are here to help! Send us a message or contact us directly using the options below.</p>
+        </div>
+        
+        <section class="contact-section">
+            <div class="contact-form-container">
+                <h2>Send Us A Message</h2>
+                <p>Fill out the form and our support team will respond within 24 hours.</p>
+                
+                <form id="support-form">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="Name" required>
+
+                    <label for="email">Your Email Address</label>
+                    <input type="email" id="email" name="Email" required>
+
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="Subject" required>
+
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="Message" required></textarea>
+
+                    <button type="submit" class="cta-button primary-cta">Submit Request</button>
+                    <div id="form-status-message" class="form-status-message"></div>
+                </form>
+            </div>
+            
+            <div class="contact-info-block">
+                <h3>Direct Contact</h3>
+                <p>For urgent inquiries, you can reach us via WhatsApp or email.</p>
+                
+                <a href="https://wa.me/2347044298522" target="_blank" class="whatsapp-link">
+                    <i class="fab fa-whatsapp"></i> WhatsApp: +234 704 429 8522
+                </a>
+                
+                <a href="mailto:support@vickyshoppingmall.com">
+                    <i class="fas fa-envelope"></i> Email: support@vickyshoppingmall.com
+                </a>
+                
+                <p>
+                    <i class="fas fa-clock"></i> Support Hours:<br>
+                    Mon - Fri: 9:00 AM - 5:00 PM (WAT)
+                </p>
+            </div>
+        </section>
+    </main>
+
+     <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>Vicki's Shopping Mall</h4>
+                <p>Premium quality and service for a delightful shopping experience.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-x"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Customer Service</h4>
+                <ul>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="#">FAQs / Help Center</a></li>
+                    <li><a href="#">Shipping & Returns</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>My Account</h4>
+                <ul>
+                    <li><a href="cart.html">View Cart</a></li>
+                    <li><a href="#">Order History</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2025 Vicki's Shopping Mall. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="contact.js"></script> 
+</body>
+</html>

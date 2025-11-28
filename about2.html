@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Vicky Shopping Mall</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <link rel="icon" type="image/png" href="images/favicon.png"> 
+    
+    <style>
+        /* Specific styles for a clean, classic about page look */
+        .about-main-content {
+            padding: 60px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .about-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .about-header h1 {
+            color: var(--color-gold);
+            font-size: 2.5em;
+        }
+        .about-image-section {
+            margin-bottom: 30px;
+            border-radius: var(--border-radius-card);
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        .about-image-section img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+        }
+        .about-text-section h2 {
+            font-size: 2em;
+            color: var(--color-primary-text);
+            margin-top: 30px;
+            border-bottom: 2px solid var(--color-gold);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .about-text-section p {
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+        .mission-points {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 20px;
+        }
+        .mission-points li {
+            padding: 10px 0;
+            border-bottom: 1px dashed var(--color-border);
+            font-weight: 700;
+        }
+        .mission-points li i {
+            color: var(--color-blue-accent);
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="Vicky Shopping Mall Logo" class="logo-image">
+            </a>
+            <nav class="nav-menu" id="navMenu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="categories.html">Shop</a></li>
+                    <li><a href="index.html#featured">Featured</a></li>
+                    <li><a href="about.html" class="active">About Us</a></li>
+                    <li><a href="contact.html">Customer Service</a></li>
+                </ul>
+                <a href="cart.html" class="cart-cta">🛒 Cart (<span id="cart-count">0</span>)</a>
+            </nav>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </button>
+        </div>
+    </header>
+
+
+    <main class="about-main-content">
+        <div class="about-header">
+            <h1>Our Story & Commitment</h1>
+            <p>We are dedicated to quality, trust, and exceptional service.</p>
+        </div>
+
+        <section class="about-image-section">
+            <img src="images/about_us_main.jpg" alt="Vicky Shopping Mall Store Interior or Team">
+        </section>
+
+            <section class="about-text-section">
+            <h2>The Vicky Shopping Mall Difference</h2>
+            <p>Vicky Shopping Mall was founded in 2025 with a singular mission: to provide **high-quality, authentic products** directly to Nigerian customers with unparalleled service and trust. We identified a gap in the market for a reliable e-commerce platform that truly prioritizes product authenticity and customer satisfaction, and we built our entire operation around closing that gap.</p>
+            <p>We are a wholly Nigerian-owned business committed to excellence, fairness, and creating a delightful shopping experience from browsing to delivery. We are focused on building a community built on trust and reliability.</p>
+            <h2>Our Core Mission</h2>
+            <ul class="mission-points">
+                <li><i class="fas fa-handshake"></i> **Authenticity Guarantee:** Every product sold is 100% genuine and sourced ethically.</li>
+                <li><i class="fas fa-shipping-fast"></i> **Speed and Reliability:** Setting the standard for fast, secure, and reliable nationwide delivery.</li>
+                <li><i class="fas fa-headset"></i> **Exceptional Support:** Providing responsive and helpful customer service every step of the way.</li>
+                <li><i class="fas fa-tags"></i> **Value Focus:** Offering the best quality items at fair and competitive prices.</li>
+            </ul>
+        </section>
+        
+        
+        <div class="contact-preview" style="margin-top: 50px;">
+            <h2>Ready to Start Shopping?</h2>
+            <a href="categories.html" class="cta-button primary-cta">Explore Products</a>
+        </div>
+    </main>
+ <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>Vicky Shopping Mall</h4>
+                <p>Premium quality and service for a delightful shopping experience.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Customer Service</h4>
+                <ul>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="#">FAQs / Help Center</a></li>
+                    <li><a href="#">Shipping & Returns</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>My Account</h4>
+                <ul>
+                    <li><a href="cart.html">View Cart</a></li>
+                    <li><a href="#">Order History</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2025 Vicky Shopping Mall. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

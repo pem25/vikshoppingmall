@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Instructions | Vicki's Shopping Mall</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" type="image/png" href="logo.png"> 
+
+    <style>
+        /* Payment Page specific styles */
+        .payment-main-content {
+            padding: 60px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .payment-box {
+            background-color: var(--color-white);
+            padding: 40px;
+            border-radius: var(--border-radius-card);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .payment-box h1 {
+            color: var(--color-blue-accent);
+            font-size: 2.2em;
+            margin-bottom: 10px;
+        }
+        .payment-box p {
+            font-size: 1.1em;
+            color: var(--color-secondary-text);
+            margin-bottom: 25px;
+        }
+        .order-summary-mini {
+            max-width: 400px;
+            margin: 30px auto;
+            padding: 20px;
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            background-color: var(--color-light-background);
+        }
+        .order-summary-mini .summary-total {
+            border-top: 2px solid var(--color-gold);
+            padding-top: 15px;
+            margin-top: 15px;
+        }
+        .bank-details-section {
+            background-color: #f0fff0; /* Light green background for trust/security */
+            border: 1px solid #c8e6c9;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+        .bank-details-section h3 {
+            color: #2e7d32; /* Dark green for success/banking */
+            margin-bottom: 15px;
+        }
+        .bank-details-section ul {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+            font-size: 1.1em;
+        }
+        .bank-details-section ul li {
+            padding: 8px 0;
+            border-bottom: 1px dashed #e0e0e0;
+        }
+        .bank-details-section ul li:last-child {
+            border-bottom: none;
+        }
+        .bank-details-section strong {
+            color: var(--color-dark-background);
+            font-weight: 700;
+            display: inline-block;
+            min-width: 150px;
+        }
+        .whatsapp-cta {
+            margin-top: 30px;
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo-container">
+    <a href="index.html" class="text-logo-link">
+        <i class="fas fa-shopping-bag logo-icon"></i> 
+        <span class="logo-name"></span>VIKI'S SHOPPING MALL</span>
+    </a>
+</div>
+            <nav class="nav-menu" id="navMenu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="categories.html">Shop</a></li>
+                    <li><a href="index.html#featured">Featured</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Customer Service</a></li>
+                </ul>
+                <a href="cart.html" class="cart-cta">🛒 Cart (<span id="cart-count">0</span>)</a>
+            </nav>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </button>
+        </div>
+    </header>
+
+    <main class="payment-main-content">
+        <div class="payment-box">
+            <h1>Almost Done! Finalize Your Payment</h1>
+            <p>Your order details have been successfully saved. Please complete your purchase using the bank transfer details below.</p>
+            
+            <div class="order-summary-mini">
+                <h3 style="color: var(--color-primary-text); text-align: left; margin-bottom: 15px; font-size: 1.2em;">Order Summary</h3>
+                <div id="payment-review-items">
+                    </div>
+
+                <div class="summary-line summary-total">
+                    <span>Final Amount Due:</span>
+                    <span id="payment-total-cost" style="color: #E74C3C;">₦0.00</span>
+                </div>
+            </div>
+
+            <div class="bank-details-section">
+                <h3><i class="fas fa-university"></i> Bank Transfer Instructions</h3>
+                <p>Use the <strong>exact amount shown above</strong> and send payment to the account below. After payment, click <strong>"I Have Paid"</strong> to confirm your order.</p>
+                <ul>
+                    <li><strong>Account Name:</strong> Victory Patrick</li>
+                    <li><strong>Account Number:</strong> 0809870402</li>
+                    <li><strong>Bank Name:</strong> Access Bank Nigeria</li>
+                </ul>
+            </div>
+            
+            <button id="confirm-payment-btn" class="cta-button primary-cta checkout-btn whatsapp-cta" style="margin-top: 40px;">
+                <i class="fas fa-check-circle"></i> I Have Paid (Finalize Order)
+            </button>
+            
+            <p class="whatsapp-cta">
+                <i class="fab fa-whatsapp"></i> Need help? WhatsApp us: <a href="https://wa.me/2347044298522" target="_blank">+234 704 429 8522</a>
+            </p>
+
+        </div>
+    </main>
+
+     <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>Vicki's Shopping Mall</h4>
+                <p>Premium quality and service for a delightful shopping experience.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Customer Service</h4>
+                <ul>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="#">FAQs / Help Center</a></li>
+                    <li><a href="#">Shipping & Returns</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>My Account</h4>
+                <ul>
+                    <li><a href="cart.html">View Cart</a></li>
+                    <li><a href="#">Order History</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2025 Vicki's Shopping Mall. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="cart.js"></script> 
+</body>
+</html>

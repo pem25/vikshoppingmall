@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viki's Shopping Mall - Premium E-commerce</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="Vicky Shopping Mall Logo" class="logo-image">
+            </a>
+            <nav class="nav-menu" id="navMenu">
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="categories.html">Shop</a></li>
+                    <li><a href="index.html#featured">Featured</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Customer Service</a></li>
+                </ul>
+                <a href="cart.html" class="cart-cta">🛒 Cart (<span id="cart-count">0</span>)</a>
+            </nav>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-banner">
+            <div class="hero-content">
+                <h1>Your One-Stop Shop for Everything You Need.</h1>
+                <p>Elegance, Quality, and Trust. Discover our hand-selected collection of premium goods and accessories.</p>
+                <a href="categories.html" class="cta-button primary-cta">Start Shopping Now →</a>
+            </div>
+            <div class="hero-image">
+                <img src="path/to/hero_main_image.jpg" alt="Woman holding shopping bags">
+            </div>
+        </section>
+
+        <section class="category-section">
+            <h2>Explore Our Top Categories</h2>
+            <div class="category-grid">
+                
+                <a href="categories.html?cat=apparel" class="category-card" id="cat-1">
+                    <img src="path/to/cat_apparel_large.jpg" alt="Apparel" class="category-card-image">
+                    <div class="category-card-content">
+                        <h3>Apparel & Fashion</h3>
+                        <p>Discover elegance and style in our curated collections.</p>
+                    </div>
+                </a>
+
+                <a href="categories.html?cat=electronics" class="category-card" id="cat-2">
+                    <img src="path/to/cat_electronics.jpg" alt="Electronics" class="category-card-image">
+                    <div class="category-card-content">
+                        <h3>Electronics & Gadgets</h3>
+                        <p>The latest in technology and smart living.</p>
+                    </div>
+                </a>
+
+                <a href="categories.html?cat=home" class="category-card" id="cat-3">
+                    <img src="path/to/cat_home_large.jpg" alt="Home Decor" class="category-card-image">
+                    <div class="category-card-content">
+                        <h3>Home & Living Essentials</h3>
+                        <p>Furnishings and decor to make your house a home.</p>
+                    </div>
+                </a>
+                
+                <a href="categories.html?cat=beauty" class="category-card" id="cat-4">
+                    <img src="path/to/cat_beauty.jpg" alt="Beauty" class="category-card-image">
+                    <div class="category-card-content">
+                        <h3>Beauty & Wellness</h3>
+                        <p>Premium self-care products and cosmetics.</p>
+                    </div>
+                </a>
+
+                <a href="categories.html?cat=sports" class="category-card" id="cat-5">
+                    <img src="path/to/cat_sports.jpg" alt="Sports Gear" class="category-card-image">
+                    <div class="category-card-content">
+                        <h3>Sports & Fitness</h3>
+                        <p>Gear up for your active life.</p>
+                    </div>
+                </a>
+
+                <a href="categories.html?cat=jewelry" class="category-card" id="cat-6">
+                    <img src="path/to/cat_jewelry.jpg" alt="Jewelry" class="category-card-image">
+                    <div class="category-card-content">
+                        <h3>Jewelry & Accessories</h3>
+                        <p>The perfect accent for any outfit.</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+        
+        <section class="about-preview-section">
+            <div class="about-content-wrapper">
+                <div class="about-text-block">
+                    <p class="pre-heading">OUR STORY & VALUES</p>
+                    <h2>The Vicky Shopping Mall Difference</h2>
+                    <p class="about-intro">
+                        Born from a passion for quality and a commitment to customer delight, Vicky Shopping Mall is your trusted source for premium goods. We believe that shopping should be an experience, not just a transaction.
+                    </p>
+                    
+                    <div class="mission-vision-grid-preview">
+                        <div class="mission-block-preview">
+                            <i class="fas fa-handshake icon-gold"></i>
+                            <h4>Trusted Quality</h4>
+                            <p>We hand-select every item to ensure it meets our strict standards of excellence.</p>
+                        </div>
+                        <div class="mission-block-preview">
+                            <i class="fas fa-shipping-fast icon-gold"></i>
+                            <h4>Fast Delivery</h4>
+                            <p>Dedicated logistics ensure your order reaches you quickly and securely, nationwide.</p>
+                        </div>
+                    </div>
+                    
+                    <a href="about.html" class="cta-button secondary-cta">Read Our Full Story →</a>
+                </div>
+                
+                <div class="about-image-block">
+                    <img src="path/to/about_image.jpg" alt="Vicky Shopping Mall Team or Storefront">
+                </div>
+            </div>
+        </section>
+
+        <section class="featured-section" id="featured">
+            <h2>Our Featured Picks</h2>
+            <div class="product-list-container">
+                <div class="product-grid">
+                    <div class="product-card" data-product-id="FP001">
+                        <img src="path/to/featured_watch.jpg" alt="Luxury Wrist Watch" class="product-card-image">
+                        <div class="product-card-info">
+                            <div>
+                                <h3>Luxury Stainless Steel Watch</h3>
+                                <p>Classic timepiece with automatic movement.</p>
+                            </div>
+                            <p class="product-card-price">₦35,000.00</p>
+                            <button class="cta-button primary-cta add-to-cart-btn" 
+                                data-name="Luxury Stainless Steel Watch" 
+                                data-price="3500000"
+                                data-image="path/to/featured_watch.jpg">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-product-id="FP002">
+                        <img src="path/to/featured_speaker.jpg" alt="Bluetooth Speaker" class="product-card-image">
+                        <div class="product-card-info">
+                            <div>
+                                <h3>Portable Bluetooth Speaker</h3>
+                                <p>Deep bass and 10-hour battery life.</p>
+                            </div>
+                            <p class="product-card-price">₦18,500.00</p>
+                            <button class="cta-button primary-cta add-to-cart-btn" 
+                                data-name="Portable Bluetooth Speaker" 
+                                data-price="1850000"
+                                data-image="path/to/featured_speaker.jpg">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 30px;">
+                <a href="categories.html" class="cta-button secondary-cta">View All Products</a>
+            </p>
+        </section>
+
+        <section class="contact-preview">
+            <h2>Need Assistance?</h2>
+            <p>Our customer service team is ready to help you with any questions or issues.</p>
+            <a href="contact.html" class="cta-button primary-cta">Get In Touch Now</a>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>Vicky Shopping Mall</h4>
+                <p>Premium quality and service for a delightful shopping experience.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Customer Service</h4>
+                <ul>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="#">FAQs / Help Center</a></li>
+                    <li><a href="#">Shipping & Returns</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>My Account</h4>
+                <ul>
+                    <li><a href="cart.html">View Cart</a></li>
+                    <li><a href="#">Order History</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2025 Vicky Shopping Mall. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="cart.js"></script>
+</body>
+</html>

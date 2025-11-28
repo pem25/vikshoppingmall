@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop All Categories | Vicki's Shopping Mall</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" type="image/png" href="logo.png"> 
+
+    <style>
+        .categories-main-content {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .categories-main-content h1 {
+            text-align: center;
+            font-size: 2.5em;
+            color: var(--color-primary-text);
+            margin-bottom: 20px;
+        }
+        .categories-filter-bar {
+            background-color: var(--color-white);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .categories-filter-bar a {
+            text-transform: uppercase;
+            font-size: 0.9em;
+            font-weight: 700;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background var(--transition-speed);
+        }
+        .categories-filter-bar a:hover {
+            background-color: var(--color-gold);
+            color: var(--color-dark-background);
+        }
+        
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-container">
+             <div class="logo-container">
+    <a href="index.html" class="text-logo-link">
+        <i class="fas fa-shopping-bag logo-icon"></i> 
+        <span class="logo-name"></span>VIKI'S SHOPPING MALL</span>
+    </a>
+</div>
+            <nav class="nav-menu" id="navMenu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="categories.html" class="active">Shop</a></li>
+                    <li><a href="index.html#featured">Featured</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Customer Service</a></li>
+                </ul>
+                <a href="cart.html" class="cart-cta">🛒 Cart (<span id="cart-count">0</span>)</a>
+            </nav>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </button>
+        </div>
+    </header>
+
+
+    <main class="categories-main-content">
+        <h1>All Products</h1>
+        <p style="text-align: center; color: var(--color-secondary-text); margin-bottom: 30px;">Browse our entire collection or filter by category.</p>
+
+        <div class="categories-filter-bar">
+            <a href="categories.html?cat=all" style="color: var(--color-gold);">ALL PRODUCTS</a>
+            <a href="categories.html?cat=apparel">Apparel & Fashion</a>
+            <a href="categories.html?cat=electronics">Electronics</a>
+            <a href="categories.html?cat=home">Home & Living</a>
+            <a href="categories.html?cat=beauty">Beauty & Wellness</a>
+            <a href="categories.html?cat=sports">Sports & Fitness</a>
+        </div>
+
+        <div class="product-grid">
+            <div class="product-card" data-product-id="CP001">
+                <img src="images/product_example_1.jpg" alt="Example Product 1" class="product-card-image">
+                <div class="product-card-info">
+                    <div>
+                        <h3>Premium Leather Wallet</h3>
+                        <p>Genuine leather, slim design.</p>
+                    </div>
+                    <p class="product-card-price">₦12,000.00</p>
+                    <button class="cta-button primary-cta add-to-cart-btn" 
+                        data-name="Premium Leather Wallet" 
+                        data-price="1200000"
+                        data-image="images/product_example_1.jpg">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+            
+             <div class="product-card" data-product-id="CP002">
+                <img src="images/product_example_2.jpg" alt="Example Product 2" class="product-card-image">
+                <div class="product-card-info">
+                    <div>
+                        <h3>Smart Fitness Tracker</h3>
+                        <p>Heart rate monitor, waterproof.</p>
+                    </div>
+                    <p class="product-card-price">₦45,500.00</p>
+                    <button class="cta-button primary-cta add-to-cart-btn" 
+                        data-name="Smart Fitness Tracker" 
+                        data-price="4550000"
+                        data-image="images/product_example_2.jpg">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+             
+             </div>
+    </main>
+
+     <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>Vicki's Shopping Mall</h4>
+                <p>Premium quality and service for a delightful shopping experience.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Customer Service</h4>
+                <ul>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="#">FAQs / Help Center</a></li>
+                    <li><a href="#">Shipping & Returns</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>My Account</h4>
+                <ul>
+                    <li><a href="cart.html">View Cart</a></li>
+                    <li><a href="#">Order History</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2025 Vicki's Shopping Mall. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="cart.js"></script>
+</body>
+</html>

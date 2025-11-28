@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | Vicki's Shopping Mall</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" type="image/png" href="images/favicon.png"> 
+
+    <style>
+        /* Checkout Page specific styles */
+        .checkout-main-content {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .checkout-layout {
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+        }
+        .shipping-form-container {
+            flex: 2;
+            background-color: var(--color-white);
+            padding: 30px;
+            border-radius: var(--border-radius-card);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        .order-summary-checkout {
+            flex: 1;
+            background-color: var(--color-light-background);
+            padding: 25px;
+            border-radius: var(--border-radius-card);
+            position: sticky;
+            top: 100px;
+        }
+        .order-summary-checkout h3 {
+            color: var(--color-gold);
+            border-bottom: 1px solid var(--color-border);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        /* Form Styling */
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--color-border);
+            border-radius: 5px;
+            font-family: var(--font-body);
+            font-size: 1em;
+        }
+        .address-group {
+            display: flex;
+            gap: 20px;
+        }
+        .address-group > div {
+            flex: 1;
+        }
+
+        /* Order Items Review (Mini-cart) */
+        .review-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 0.9em;
+            padding-bottom: 5px;
+            border-bottom: 1px dashed var(--color-border);
+        }
+        .review-item-name {
+            font-weight: 400;
+            color: var(--color-primary-text);
+        }
+        .review-item-name span {
+            font-size: 0.8em;
+            color: var(--color-secondary-text);
+        }
+
+        /* Summary Totals */
+        .summary-line {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .summary-total {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: var(--color-blue-accent);
+            padding-top: 10px;
+            border-top: 2px solid var(--color-gold);
+            margin-top: 15px;
+        }
+        .checkout-btn {
+            width: 100%;
+            margin-top: 20px;
+        }
+        .payment-info {
+            background-color: var(--color-white);
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .payment-info h4 {
+            color: var(--color-blue-accent);
+            margin-bottom: 10px;
+        }
+
+
+        /* Mobile Adjustments */
+        @media (max-width: 900px) {
+            .checkout-layout {
+                flex-direction: column;
+            }
+            .order-summary-checkout {
+                width: 100%;
+                position: relative;
+                top: 0;
+            }
+            .address-group {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header class="main-header">
+        <div class="header-container">
+            <div class="logo-container">
+    <a href="index.html" class="text-logo-link">
+        <i class="fas fa-shopping-bag logo-icon"></i> 
+        <span class="logo-name"></span>VIKI'S SHOPPING MALL</span>
+    </a>
+</div>
+            <nav class="nav-menu" id="navMenu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="categories.html">Shop</a></li>
+                    <li><a href="index.html#featured">Featured</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Customer Service</a></li>
+                </ul>
+                <a href="cart.html" class="cart-cta">🛒 Cart (<span id="cart-count">0</span>)</a>
+            </nav>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </button>
+        </div>
+    </header>
+
+
+    <main class="checkout-main-content">
+        <h1 class="page-title" style="text-align: center; margin-bottom: 30px;">Finalize Your Order</h1>
+        
+        <div class="checkout-layout">
+            
+            <div class="shipping-form-container">
+                <h2>1. Shipping Details</h2>
+                <form id="checkout-form">
+                    
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" name="fullName" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="text" id="phone" name="phone" placeholder="+234..." required>
+                    </div>
+
+                    <div class="form-group address-group">
+                        <div>
+                            <label for="state">State</label>
+                            <input type="text" id="state" name="state" required>
+                        </div>
+                        <div>
+                            <label for="city">City / Town</label>
+                            <input type="text" id="city" name="city" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="street">Street Address / Landmark</label>
+                        <input type="text" id="street" name="street" required>
+                    </div>
+
+                    <h2>2. Proceed to Payment</h2>
+                    
+                    <div class="payment-info">
+                        <h4>Payment via Bank Transfer</h4>
+                        <p>After clicking "Proceed," you will be taken to the next page for <strong>Bank Transfer instructions</strong> and final order confirmation.</p>
+                    </div>
+
+                    <button type="payment.html" class="cta-button primary-cta checkout-btn">
+                        <i class="fas fa-arrow-right"></i> Proceed to Payment Instructions
+                    </button>
+                    <div id="checkout-status" style="margin-top: 15px; font-weight: 700; color: #E74C3C;"></div>
+                </form>
+            </div>
+
+            <div class="order-summary-checkout">
+                <h3>Your Order (Review)</h3>
+                <div id="order-review-items">
+                    </div>
+
+                <div class="summary-line">
+                    <span>Subtotal:</span>
+                    <span id="review-subtotal">₦0.00</span>
+                </div>
+                
+                <div class="summary-line">
+                    <span>Shipping Fee:</span>
+                    <span id="review-shipping-cost">₦0.00</span>
+                </div>
+                
+                <div class="summary-line summary-total">
+                    <span>Order Total:</span>
+                    <span id="review-total-cost">₦0.00</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+     <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>Vicki's Shopping Mall</h4>
+                <p>Premium quality and service for a delightful shopping experience.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Customer Service</h4>
+                <ul>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="#">FAQs / Help Center</a></li>
+                    <li><a href="#">Shipping & Returns</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>My Account</h4>
+                <ul>
+                    <li><a href="cart.html">View Cart</a></li>
+                    <li><a href="#">Order History</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2025 Vicki's Shopping Mall. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="cart.js"></script>
+</body>
+</html>
