@@ -1,22 +1,23 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // ----------------------------------------------------
-    // 1. UTILITY FUNCTIONS
-    // ----------------------------------------------------
+    
+    // --- Configuration ---
+    const SHIPPING_COST = 500000; // ₦5,000.00 in kobo (5000 * 100)
 
-    // Loads cart data from Local Storage or returns an empty array
+    // --- Utility Functions ---
+
+    // 1. Loads cart data from Local Storage or returns an empty array
     function getCart() {
         const cartData = localStorage.getItem('vikiCart');
         return cartData ? JSON.parse(cartData) : [];
     }
 
-    // Saves the current cart array back to Local Storage
+    // 2. Saves the current cart array back to Local Storage
     function saveCart(cart) {
         localStorage.setItem('vikiCart', JSON.stringify(cart));
     }
 
-    // Formats a number (in kobo/smallest unit) into the Naira currency string
+    // 3. Formats a number (in kobo/smallest unit) into the Naira currency string
     function formatCurrency(amount) {
-        // Assumes price data is stored in the smallest unit (e.g., kobo: 4800000 = ₦48,000.00)
         // Divide by 100 to get the Naira amount before formatting.
         return new Intl.NumberFormat('en-NG', {
             style: 'currency',
@@ -25,18 +26,28 @@ document.addEventListener('DOMContentLoaded', () => {
         }).format(amount / 100);
     }
 
-    const SHIPPING_COST = 500000; // ₦5,000.00 in kobo
+    // 4. Updates the item count displayed in the navigation header
+    function updateCartCount() {
+        const cart = getCart();
+        const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+        const cartCountElement = document.querySelector('#cart-count'); // Targets the span in the header
+        if (cartCountElement) {
+            cartCountElement.textContent = totalItems;
+        }
+    }
+    updateCartCount(); // Run once on load for all pages
 
     // ----------------------------------------------------
-    // 2. ADD TO CART LOGIC (Needed for index.html/categories.html)
+    // 5. ADD TO CART LOGIC (Runs on index.html and categories.html)
     // ----------------------------------------------------
 
     const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
     addToCartButtons.forEach(button => {
         button.addEventListener('click', function(event) {
-            event.stopPropagation(); // Prevents clicking the product card link
+            event.stopPropagation(); // Prevents link activation when clicking "Add to Cart" button
 
-            const id = this.dataset.id || this.dataset.productId; 
+            // Use data-name, data-price, data-image attributes from the button/card
+            const id = this.dataset.id || this.closest('.product-card').dataset.productId;
             const name = this.dataset.name;
             const price = parseInt(this.dataset.price); // Price in kobo
             const image = this.dataset.image;
@@ -53,29 +64,17 @@ document.addEventListener('DOMContentLoaded', () => {
             saveCart(cart);
             alert(`"${name}" added to cart!`);
 
-            // Update the cart count in the header/navigation (if applicable)
             updateCartCount();
         });
     });
 
-    // Simple function to update the cart count in the header
-    function updateCartCount() {
-        const cart = getCart();
-        const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
-        const cartCountElement = document.querySelector('.cart-count'); // Assuming you have a span/div with this class in your header
-        if (cartCountElement) {
-            cartCountElement.textContent = totalItems;
-        }
-    }
-    updateCartCount(); // Run once on load for all pages
-
-    // If not on cart.html, stop here.
+    // If the current page is NOT cart.html, stop here.
     if (!document.querySelector('.cart-main-content')) {
         return; 
     }
 
     // ----------------------------------------------------
-    // 3. CART PAGE RENDERING AND CALCULATION (cart.html only)
+    // 6. CART PAGE RENDERING AND CALCULATION (Runs on cart.html only)
     // ----------------------------------------------------
 
     const cartItemsContainer = document.getElementById('cart-items');
@@ -84,15 +83,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const subtotalElement = document.getElementById('subtotal');
     const totalCostElement = document.getElementById('total-cost');
     const clearCartButton = document.getElementById('clear-cart-btn');
-
+    
     // Main function to build the HTML and update the totals
     function renderCart() {
         const cart = getCart();
         cartItemsContainer.innerHTML = ''; // Clear existing content
-
+        
+        // Toggle visibility based on cart size
         if (cart.length === 0) {
             emptyMessage.style.display = 'block';
             cartContent.style.display = 'none';
+            // Also reset totals when empty
+            subtotalElement.textContent = formatCurrency(0);
+            totalCostElement.textContent = formatCurrency(SHIPPING_COST); // Show shipping is included in base total
             return;
         }
         
@@ -106,6 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const itemTotal = item.price * item.quantity;
             subtotalKobo += itemTotal;
 
+            // Template for a single cart item
             const itemHTML = `
                 <div class="cart-item" data-id="${item.id}">
                     <div class="col-product">
@@ -128,17 +132,17 @@ document.addEventListener('DOMContentLoaded', () => {
             cartItemsContainer.innerHTML += itemHTML;
         });
 
-        // 4. CALCULATE AND UPDATE SUMMARY
+        // Calculate and Update Summary
         const totalKobo = subtotalKobo + SHIPPING_COST;
         
         subtotalElement.textContent = formatCurrency(subtotalKobo);
         totalCostElement.textContent = formatCurrency(totalKobo);
 
-        // 5. ATTACH EVENT LISTENERS (after rendering HTML)
+        // Attach listeners to newly created elements
         attachCartListeners();
     }
 
-    // Attaches listeners for removing and changing quantity
+    // Attaches listeners for removing and changing quantity after rendering
     function attachCartListeners() {
         document.querySelectorAll('.remove-item-btn').forEach(button => {
             button.addEventListener('click', removeItem);
@@ -150,7 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     // ----------------------------------------------------
-    // 4. CART INTERACTION FUNCTIONS
+    // 7. CART INTERACTION FUNCTIONS
     // ----------------------------------------------------
 
     function removeItem(event) {
@@ -183,7 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     
-    // --- CLEAR CART BUTTON LISTENER (Already in your snippet) ---
+    // Clear Cart Button Listener
     if (clearCartButton) {
         clearCartButton.addEventListener('click', function() {
             if (confirm("Are you sure you want to empty your entire shopping cart?")) {
@@ -194,6 +198,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- INITIALIZATION ---
+    // --- INITIALIZATION: This runs when cart.html is loaded ---
     renderCart();
 });
