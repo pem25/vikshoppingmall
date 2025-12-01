@@ -231,4 +231,26 @@ document.addEventListener('DOMContentLoaded', function() {
         // Since renderCart isn't fully defined here, assume it's set up to run
         // and attach listeners when the page loads, as in previous snippets.
     }
+
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    // --- Existing initialization and rendering calls...
+
+    const clearCartButton = document.getElementById('clear-cart-btn');
+    if (clearCartButton) {
+        clearCartButton.addEventListener('click', function() {
+            // Function to clear local storage and re-render the cart
+            if (confirm("Are you sure you want to empty your entire shopping cart?")) {
+                localStorage.removeItem('vikiCart');
+                renderCart(); // Call your main function to refresh the view
+            }
+        });
+    }
+
+    // --- Ensure this is also added/updated in your cart.js ---
+    // If you don't have it, this function needs to exist to refresh the view
+    function renderCart() {
+        // ... (This function should check cart data and toggle #empty-cart-message or #cart-content visibility)
+    }
 });
