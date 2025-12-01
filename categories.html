@@ -336,7 +336,72 @@
             &copy; 2025 Viki's Shopping Mall. All Rights Reserved.
         </div>
     </footer>
+<script>
+    /* === CATEGORY FILTERING LOGIC (categories.html) === */
 
+document.addEventListener('DOMContentLoaded', function() {
+    const filterLinks = document.querySelectorAll('.categories-filter-bar a');
+    const productCards = document.querySelectorAll('.product-grid .product-card');
+
+    // Function to apply the filter based on category key
+    function applyFilter(categoryKey) {
+        // 1. Reset all product card visibility
+        productCards.forEach(card => {
+            card.style.display = 'none';
+        });
+
+        // 2. Determine which cards to show
+        productCards.forEach(card => {
+            const cardCategory = card.getAttribute('data-category');
+
+            if (categoryKey === 'all' || cardCategory === categoryKey) {
+                card.style.display = 'block'; // Show the card
+            }
+        });
+        
+        // 3. Update the active style on the filter bar
+        filterLinks.forEach(link => {
+            // Remove gold color from all links
+            link.style.color = 'var(--color-secondary-text)';
+            
+            // Check the href to find the matching filter
+            const linkHref = link.getAttribute('href');
+            if (linkHref.includes(`cat=${categoryKey}`)) {
+                link.style.color = 'var(--color-gold)'; // Apply gold color to the active link
+            } else if (categoryKey === 'all' && linkHref.includes('cat=all')) {
+                 link.style.color = 'var(--color-gold)';
+            }
+        });
+    }
+
+    // --- A. Handle Filter Link Clicks ---
+    filterLinks.forEach(link => {
+        link.addEventListener('click', function(event) {
+            event.preventDefault(); // Stop the page from navigating/reloading
+
+            // Extract the category key from the URL query parameter
+            const urlParams = new URLSearchParams(link.search);
+            const selectedCat = urlParams.get('cat') || 'all'; 
+
+            applyFilter(selectedCat);
+            
+            // Optional: Update the browser's URL without reloading (to keep the state)
+            history.pushState(null, '', `categories.html?cat=${selectedCat}`);
+        });
+    });
+
+    // --- B. Handle Initial Load (Checking the URL query) ---
+    // This makes sure the correct filter is applied when the page first loads
+    function initializeFilter() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const initialCat = urlParams.get('cat') || 'all';
+        applyFilter(initialCat);
+    }
+    
+    // Run the initialization function
+    initializeFilter();
+});
+</script>
     <script src="script.js"></script>
     <script src="cart.js"></script>
 </body>
