@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop All Categories | Vicki's Shopping Mall</title>
+    <title>Shop All Categories | Viki's Shopping Mall</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -77,60 +77,231 @@
 
 
     <main class="categories-main-content">
-        <h1>All Products</h1>
-        <p style="text-align: center; color: var(--color-secondary-text); margin-bottom: 30px;">Browse our entire collection or filter by category.</p>
+    <h1>Our Full Collection</h1>
+    <p style="text-align: center; color: var(--color-secondary-text); margin-bottom: 30px;">Browse our entire collection or filter by category. **All items currently 30% Off!**</p>
 
-        <div class="categories-filter-bar">
-            <a href="categories.html?cat=all" style="color: var(--color-gold);">ALL PRODUCTS</a>
-            <a href="categories.html?cat=apparel">Apparel & Fashion</a>
-            <a href="categories.html?cat=electronics">Electronics</a>
-            <a href="categories.html?cat=home">Home & Living</a>
-            <a href="categories.html?cat=beauty">Beauty & Wellness</a>
-            <a href="categories.html?cat=sports">Sports & Fitness</a>
+    <div class="categories-filter-bar">
+        <a href="categories.html?cat=all" style="color: var(--color-gold);">ALL PRODUCTS</a>
+        <a href="categories.html?cat=apparel">Apparel & Footwear</a>
+        <a href="categories.html?cat=home">Home & Living</a>
+        <a href="categories.html?cat=beauty">Beauty & Grooming</a>
+        <a href="categories.html?cat=kitchen">Kitchen & Dining</a>
+        <a href="categories.html?cat=jewelry">Jewelry & Accessories</a>
+    </div>
+
+    <div class="product-grid">
+        
+        <div class="product-card" data-product-id="CP32" data-category="apparel">
+            <img src="32.jpg" alt="Premium Cotton Boxer Briefs Set" class="product-card-image">
+            <div class="product-card-info">
+                <div>
+                    <h3>Premium Cotton Boxer Briefs Set</h3>
+                    <p>Assorted colors, comfort fit, stylish gift packaging.</p>
+                </div>
+                <span class="category-discount-badge">30% DISCOUNT</span>
+                <button class="cta-button primary-cta add-to-cart-btn" 
+                    data-name="Cotton Boxer Set" 
+                    data-price="1500000"
+                    data-image="32.jpg">
+                    Add to Cart
+                </button>
+            </div>
         </div>
 
-        <div class="product-grid">
-            <div class="product-card" data-product-id="CP001">
-                <img src="images/product_example_1.jpg" alt="Example Product 1" class="product-card-image">
-                <div class="product-card-info">
-                    <div>
-                        <h3>Premium Leather Wallet</h3>
-                        <p>Genuine leather, slim design.</p>
-                    </div>
-                    <p class="product-card-price">₦12,000.00</p>
-                    <button class="cta-button primary-cta add-to-cart-btn" 
-                        data-name="Premium Leather Wallet" 
-                        data-price="1200000"
-                        data-image="images/product_example_1.jpg">
-                        Add to Cart
-                    </button>
+        <div class="product-card" data-product-id="CP23" data-category="home">
+            <img src="23.jpg" alt="BARDÉFU 6-in-1 Multi-Blender" class="product-card-image">
+            <div class="product-card-info">
+                <div>
+                    <h3>BARDÉFU 6-in-1 Multi-Blender</h3>
+                    <p>High-powered 9500W, large capacity with multiple attachments.</p>
                 </div>
+                <span class="category-discount-badge">30% DISCOUNT</span>
+                <button class="cta-button primary-cta add-to-cart-btn" 
+                    data-name="6-in-1 Blender" 
+                    data-price="4800000"
+                    data-image="23.jpg">
+                    Add to Cart
+                </button>
             </div>
-            
-             <div class="product-card" data-product-id="CP002">
-                <img src="images/product_example_2.jpg" alt="Example Product 2" class="product-card-image">
-                <div class="product-card-info">
-                    <div>
-                        <h3>Smart Fitness Tracker</h3>
-                        <p>Heart rate monitor, waterproof.</p>
-                    </div>
-                    <p class="product-card-price">₦45,500.00</p>
-                    <button class="cta-button primary-cta add-to-cart-btn" 
-                        data-name="Smart Fitness Tracker" 
-                        data-price="4550000"
-                        data-image="images/product_example_2.jpg">
-                        Add to Cart
-                    </button>
+        </div>
+
+        <div class="product-card" data-product-id="CP29" data-category="apparel">
+            <img src="29.jpg" alt="Black Slip-On Loafers with Platform Sole" class="product-card-image">
+            <div class="product-card-info">
+                <div>
+                    <h3>Sleek Men's Platform Loafers</h3>
+                    <p>Modern black slip-ons with a wide strap and clean white sole.</p>
                 </div>
+                <span class="category-discount-badge">30% DISCOUNT</span>
+                <button class="cta-button primary-cta add-to-cart-btn" 
+                    data-name="Men's Platform Loafers" 
+                    data-price="1650000"
+                    data-image="29.jpg">
+                    Add to Cart
+                </button>
             </div>
-             
-             </div>
-    </main>
+        </div>
+
+        <div class="product-card" data-product-id="CP46" data-category="beauty">
+            <img src="1000134546.jpg" alt="Professional Cordless Hair Clipper Set" class="product-card-image">
+            <div class="product-card-info">
+                <div>
+                    <h3>Professional Cordless Hair Clipper Set</h3>
+                    <p>Digital display, multiple guards, rechargeable grooming kit.</p>
+                </div>
+                <span class="category-discount-badge">30% DISCOUNT</span>
+                <button class="cta-button primary-cta add-to-cart-btn" 
+                    data-name="Hair Clipper Set" 
+                    data-price="1250000"
+                    data-image="1000134546.jpg">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+        
+        <div class="product-card" data-product-id="CP44" data-category="kitchen">
+            <img src="1000134544.jpg" alt="Insulated Floral Hot Pot Casserole Set" class="product-card-image">
+            <div class="product-card-info">
+                <div>
+                    <h3>Insulated Floral Hot Pot Casseroles</h3>
+                    <p>Stackable set of food warmers in multiple vibrant colors.</p>
+                </div>
+                <span class="category-discount-badge">30% DISCOUNT</span>
+                <button class="cta-button primary-cta add-to-cart-btn" 
+                    data-name="Casserole Set" 
+                    data-price="1800000"
+                    data-image="1000134544.jpg">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+
+        <div class="product-card" data-product-id="CP34" data-category="jewelry">
+            <img src="1000134534.jpg" alt="Chunky Gold Statement Earrings Set" class="product-card-image">
+            <div class="product-card-info">
+                <div>
+                    <h3>Chunky Gold Statement Earrings Set</h3>
+                    <p>Assorted pack of large, contemporary gold-tone fashion hoops.</p>
+                </div>
+                <span class="category-discount-badge">30% DISCOUNT</span>
+                <button class="cta-button primary-cta add-to-cart-btn" 
+                    data-name="Gold Hoops Set" 
+                    data-price="550000"
+                    data-image="1000134534.jpg">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+        
+        <div class="product-card" data-product-id="CP22" data-category="home">
+            <img src="22.jpg" alt="Pastel Matte Insulated Water Bottles" class="product-card-image">
+            <div class="product-card-info">
+                <div>
+                    <h3>Pastel Matte Insulated Water Bottles</h3>
+                    <p>Slim, portable flasks in soft pastel colors (set of 3 shown).</p>
+                </div>
+                <span class="category-discount-badge">30% DISCOUNT</span>
+                <button class="cta-button primary-cta add-to-cart-btn" 
+                    data-name="Pastel Water Bottles" 
+                    data-price="850000"
+                    data-image="22.jpg">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+        
+        <div class="product-card" data-product-id="CP36" data-category="beauty">
+            <img src="1000134536.jpg" alt="Vaseline Intensive Care Body Oil" class="product-card-image">
+            <div class="product-card-info">
+                <div>
+                    <h3>Vaseline Intensive Care Body Oil (Trio)</h3>
+                    <p>Vitalizing cocoa and vitamin B3 body oils for healthy, glowing skin.</p>
+                </div>
+                <span class="category-discount-badge">30% DISCOUNT</span>
+                <button class="cta-button primary-cta add-to-cart-btn" 
+                    data-name="Body Oil Trio" 
+                    data-price="750000"
+                    data-image="1000134536.jpg">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+
+        <div class="product-card" data-product-id="CP20" data-category="kitchen">
+            <img src="20.jpg" alt="Faux Wood Grain Serving Set" class="product-card-image">
+            <div class="product-card-info">
+                <div>
+                    <h3>Faux Wood Grain Serving Set</h3>
+                    <p>Stylish, durable melamine plates and bowls with a wood-look finish.</p>
+                </div>
+                <span class="category-discount-badge">30% DISCOUNT</span>
+                <button class="cta-button primary-cta add-to-cart-btn" 
+                    data-name="Wood Serving Set" 
+                    data-price="1100000"
+                    data-image="20.jpg">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+
+        <div class="product-card" data-product-id="CP38" data-category="apparel">
+            <img src="1000134538.jpg" alt="Patent Leather Kids' Chain Loafers" class="product-card-image">
+            <div class="product-card-info">
+                <div>
+                    <h3>Patent Leather Kids' Chain Loafers</h3>
+                    <p>Chunky sole, gold chain accent, perfect formal or casual look.</p>
+                </div>
+                <span class="category-discount-badge">30% DISCOUNT</span>
+                <button class="cta-button primary-cta add-to-cart-btn" 
+                    data-name="Kids' Loafers" 
+                    data-price="950000"
+                    data-image="1000134538.jpg">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+
+        <div class="product-card" data-product-id="CP28" data-category="beauty">
+            <img src="1000134528.jpg" alt="French Ombre Press-On Toenails Set" class="product-card-image">
+            <div class="product-card-info">
+                <div>
+                    <h3>French Ombre Press-On Toenails</h3>
+                    <p>Quick, beautiful pink and white gradient for the perfect pedicure.</p>
+                </div>
+                <span class="category-discount-badge">30% DISCOUNT</span>
+                <button class="cta-button primary-cta add-to-cart-btn" 
+                    data-name="Ombre Toenails" 
+                    data-price="400000"
+                    data-image="1000134528.jpg">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+
+        <div class="product-card" data-product-id="CP28B" data-category="jewelry">
+            <img src="28.jpg" alt="Chunky Mixed-Metal Hoop Earrings Set" class="product-card-image">
+            <div class="product-card-info">
+                <div>
+                    <h3>Chunky Mixed-Metal Hoop Set</h3>
+                    <p>Large assortment of gold and silver tone hoops for every style.</p>
+                </div>
+                <span class="category-discount-badge">30% DISCOUNT</span>
+                <button class="cta-button primary-cta add-to-cart-btn" 
+                    data-name="Mixed Hoops Set" 
+                    data-price="600000"
+                    data-image="28.jpg">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+        
+    </div>
+</main>
 
      <footer class="main-footer">
         <div class="footer-container">
             <div class="footer-section">
-                <h4>Vicki's Shopping Mall</h4>
+                <h4>Viki's Shopping Mall</h4>
                 <p>Premium quality and service for a delightful shopping experience.</p>
                 <div class="social-icons">
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -162,7 +333,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            &copy; 2025 Vicki's Shopping Mall. All Rights Reserved.
+            &copy; 2025 Viki's Shopping Mall. All Rights Reserved.
         </div>
     </footer>
 
