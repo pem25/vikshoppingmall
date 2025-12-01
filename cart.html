@@ -174,40 +174,64 @@
 
 
     <main class="cart-main-content">
-        <h1 class="page-title" style="text-align: center; margin-bottom: 30px;">Your Shopping Cart</h1>
+    <h1 class="page-title" style="text-align: center; margin-bottom: 30px;">Your Shopping Cart</h1>
+    
+    <div id="empty-cart-message" class="empty-cart-message" style="display: none;">
+        <i class="fas fa-shopping-cart" style="font-size: 3em; color: var(--color-gold); margin-bottom: 15px;"></i>
+        <h2>Your cart is currently empty.</h2>
+        <p>Ready to find something amazing? Start exploring our premium categories!</p>
+        <a href="categories.html" class="cta-button primary-cta">Go Shopping</a>
+    </div>
+
+    <div id="cart-content" class="cart-layout" style="display: none;">
         
-        <div id="empty-cart-message" class="empty-cart-message" style="display: none;">
-            <i class="fas fa-shopping-cart" style="font-size: 3em; color: #ccc; margin-bottom: 15px;"></i>
-            <h2>Your cart is currently empty.</h2>
-            <p>Ready to find something amazing? Start exploring our categories!</p>
-            <a href="categories.html" class="cta-button primary-cta">Go Shopping</a>
-        </div>
-
-        <div id="cart-content" class="cart-layout" style="display: none;">
-            <div class="cart-items-container" id="cart-items">
-                </div>
-
-            <div class="cart-summary">
-                <h3>Order Summary</h3>
-                
-                <div class="summary-line">
-                    <span>Subtotal:</span>
-                    <span id="subtotal">₦0.00</span>
-                </div>
-                
-                <div class="summary-line">
-                    <span>Shipping:</span>
-                    <span id="shipping-cost">₦5,000.00</span> </div>
-                
-                <div class="summary-line summary-total">
-                    <span>Total:</span>
-                    <span id="total-cost">₦0.00</span>
-                </div>
-
-                <a href="checkout.html" id="checkout-link" class="cta-button primary-cta checkout-btn">Proceed to Checkout</a>
+        <div class="cart-items-container">
+            
+            <div class="cart-header-row">
+                <span class="col-product">Product</span>
+                <span class="col-price">Price</span>
+                <span class="col-quantity">Quantity</span>
+                <span class="col-subtotal">Subtotal</span>
+                <span class="col-remove">Remove</span>
             </div>
+            
+            <div id="cart-items">
+                </div>
+            
+            <button id="clear-cart-btn" class="cta-button secondary-cta" style="margin-top: 20px;">
+                <i class="fas fa-trash-alt"></i> Empty Cart
+            </button>
+
         </div>
-    </main>
+
+        <div class="cart-summary">
+            <h3>Order Summary</h3>
+            
+            <div class="summary-line">
+                <span>Subtotal (Items):</span>
+                <span id="subtotal">₦0.00</span>
+            </div>
+            
+            <div class="summary-line">
+                <span>Shipping Cost:</span>
+                <span id="shipping-cost">₦5,000.00</span> 
+            </div>
+            
+            <div class="summary-line summary-total">
+                <span>Total Due:</span>
+                <span id="total-cost">₦0.00</span>
+            </div>
+
+            <a href="checkout.html" id="checkout-link" class="cta-button primary-cta checkout-btn">
+                Proceed to Checkout
+            </a>
+            <a href="categories.html" class="cta-button secondary-cta" style="margin-top: 15px;">
+                Continue Shopping
+            </a>
+        </div>
+    </div>
+</main>
+    
 
      <footer class="main-footer">
         <div class="footer-container">
