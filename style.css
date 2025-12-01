@@ -315,7 +315,31 @@ img {
 #cat-5 { grid-area: item5; }
 #cat-6 { grid-area: item6; }
 
+/* --- Category Discount Badge Style --- */
+.category-discount-badge {
+    display: inline-block;
+    background-color: var(--color-gold); /* Gold background */
+    color: var(--color-dark-background); /* Dark text */
+    font-weight: 900;
+    font-size: 0.75em;
+    padding: 3px 8px;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
 
+/* Update category-card-content to stack items better */
+.category-card-content {
+    padding: 15px;
+    text-align: center;
+}
+
+.category-card-content h3 {
+    margin-top: 0;
+    margin-bottom: 5px; /* Adjust spacing below the title */
+}
 
 /* === 9. ABOUT PREVIEW SECTION === */
 .about-preview-section {
